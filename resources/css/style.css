@@ -1,0 +1,7 @@
+logo{
+    background:
+            linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+            url('../img/bgdesign.jfif') center / cover no-repeat; 
+            min-height: 400px;
+}
+
