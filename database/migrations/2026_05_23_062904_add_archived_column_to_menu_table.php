@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('menu', function (Blueprint $table) {
-            $table->integer('archived')->nullable();
+            $table->integer('archieved')->nullable();
         });
     }
 
