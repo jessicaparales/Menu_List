@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('menu', function (Blueprint $table) {
-            $table->integer('archieved')->default(0)->change();
+            if (Schema::hasColumn('menu', 'archieved')) {
+                $table->integer('archieved')->default(0)->change();
+            }
         });
     }
 
