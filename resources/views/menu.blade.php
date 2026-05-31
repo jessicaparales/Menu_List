@@ -35,7 +35,7 @@
                                             data-bs-toggle="modal" 
                                             data-bs-target="#menuModal{{ $manageMenu->menu_id }}">
                                             @if($manageMenu->menu_picture == null)
-                                                <img src="uploads/food.jfif" class="card-img-top" alt="food">
+                                                <img src="uploads/placeholder.png" class="card-img-top" alt="food" width="150" height="200">
                                             @else
                                             <img src="uploads/{{$manageMenu->menu_picture}}" class="card-img-top" alt="food" width="150" height="200">
                                             @endif

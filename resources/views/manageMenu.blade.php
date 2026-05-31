@@ -32,9 +32,9 @@
                       <td>{{$loop->iteration }}</td>
                       <td>{{$manageMenu->menu_name }}</td>
                       <td style="max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$manageMenu->menu_description }}</td>
-                      <td>{{$manageMenu->menu_price }}</td>
+                      <td>{{$manageMenu->menu_price}}</td>
                       <td>{{$manageMenu->menu_category }}</td>
-                      <td>{{$manageMenu->menu_picture }}</td>
+                      <td>{{$manageMenu->menu_picture == '' ? 'N/A' : $manageMenu->menu_picture}}</td>
 
                       <td>
                         <a type='button' class='btn btn-warning' style='--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;'  data-bs-toggle='modal' data-bs-target='#EditModal{{$manageMenu->menu_id  }}'><i class="bi bi-pencil"></i></a>

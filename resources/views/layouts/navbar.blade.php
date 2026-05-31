@@ -30,7 +30,7 @@
   <div class="d-flex align-items-center justify-content-between px-3 py-3 border-bottom border-secondary" style="font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;">
-    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+    <a href="/home" class="d-flex align-items-center text-decoration-none">
       <img src="uploads/logoMenu.jpg" alt="Logo" style="width: 60px; height: 60px; border-radius: 50%;">
       <span class="text-white fw-bold ms-3 fs-5" style="font-family: 'Poppins', sans-serif;
   font-weight: 400;

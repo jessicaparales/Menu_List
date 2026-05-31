@@ -20,6 +20,7 @@ class MenuController extends Controller
         -> where('menu_category', 'foods'); 
         return view('menu', compact("menuList"));
     }
+
     public function showMenuDrinks(){
         $menuList= Menu::all()
         -> where('archieved', 0) 
@@ -56,6 +57,7 @@ class MenuController extends Controller
 
         return back()->with('success', 'Added successfully!');
     }
+
     public function editMenu(Request $request, $id){
         $menu = Menu::where('menu_id', $id);
 
@@ -85,7 +87,6 @@ class MenuController extends Controller
 
             return back()->with('success', 'Update Successfully');
         }
-
     }
 
     public function deleteMenu(Request $request){
@@ -103,10 +104,44 @@ class MenuController extends Controller
     }
 
     public function showDashboard(){
-        $userCount= User::count();
-        $menuCount= Menu::where('archieved', 0)->count();
-        $foodsCount = Menu::where('menu_category', 'foods')->count();
-        $drinksCount = Menu::where('menu_category', 'drinks')->count();
-        return view('home', compact('userCount', 'menuCount', 'foodsCount', 'drinksCount'));
+        $userCount     = User::count();
+        $menuCount     = Menu::where('archieved', 0)->count();
+        $foodsCount    = Menu::where('menu_category', 'foods')->where('archieved', 0)->count();
+        $drinksCount   = Menu::where('menu_category', 'drinks')->where('archieved', 0)->count();
+        $archivedCount = Menu::where('archieved', 1)->count();
+        $avgPrice      = Menu::where('archieved', 0)->avg('menu_price');
+
+        // Items per category and avg price per category (active only)
+        $categoryStats = Menu::where('archieved', 0)
+            ->selectRaw('menu_category, COUNT(*) as total, ROUND(AVG(menu_price), 2) as avg_price')
+            ->groupBy('menu_category')
+            ->get();
+
+        $categoryLabels   = $categoryStats->pluck('menu_category');
+        $categoryCounts   = $categoryStats->pluck('total');
+        $categoryAvgPrice = $categoryStats->pluck('avg_price');
+
+        // Active items missing a picture or description
+        $incompleteItems = Menu::where('archieved', 0)
+            ->where(function($query){
+                $query->whereNull('menu_picture')
+                      ->orWhere('menu_picture', '')
+                      ->orWhereNull('menu_description')
+                      ->orWhere('menu_description', '');
+            })
+            ->get();
+
+        return view('home', compact(
+            'userCount',
+            'menuCount',
+            'foodsCount',
+            'drinksCount',
+            'archivedCount',
+            'avgPrice',
+            'categoryLabels',
+            'categoryCounts',
+            'categoryAvgPrice',
+            'incompleteItems'
+        ));
     }
 }
