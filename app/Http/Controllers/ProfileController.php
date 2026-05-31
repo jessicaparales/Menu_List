@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -24,7 +25,30 @@ class ProfileController extends Controller
             ]);
         }
 
+        session(['user' => $user->fresh()]);
         return back()->with('success', 'Profile Updated');
+    }
+
+    public function editProfile(Request $request)
+    {
+        $user = User::find(session('user')->id);
+
+        $user->update([
+            'firstname' => $request->firstname,
+            'lastname'  => $request->lastname,
+            'email'     => $request->email,
+        ]);
+
+        if ($request->filled('new_pass')) {
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->with('error', 'Current password is incorrect.');
+            }
+            $user->update(['password' => Hash::make($request->new_pass)]);
+        }
+
+        session(['user' => $user->fresh()]);
+
+        return back()->with('success', 'Profile updated successfully.');
     }
 
 }

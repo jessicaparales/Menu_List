@@ -31,7 +31,7 @@
                             font-weight: 400;
                             font-style: normal;">
                                 <h5 class="card-title border-bottom pb-3">User Profile</h5>
-                                <form method="post" action="" class="row g-3">
+                                <form method="post" action="/editProfile" class="row g-3">
                                     @csrf
                                 <div class="col-md-6 floating-group">
                                         <input type="text" name="firstname" id="inputEmail4" value="{{ session('user')->firstname }}" required>
@@ -46,20 +46,20 @@
                                         <label for="inputPassword4"> Email</label>
                                      </div>
                                 <div class="col-md-6 floating-group">
-                                    <input type="password" name="current_password" id="inputAddress" required>
+                                    <input type="password" name="current_password" id="inputAddress">
                                     <label for="inputAddress"> Password</label>
                                   </div>
                                 <div class="col-md-6 floating-group">
-                                    <input type="text" name="new_pass" id="inputpass" required>
+                                    <input type="text" name="new_pass" id="inputpass">
                                     <label for="inputAddress2"> New Password</label>
                                   </div>
                                 <div class="col-md-6 floating-group">
-                                    <input type="password" name="confirm_pass" id="inputpass" required>
+                                    <input type="password" name="confirm_pass" id="inputpass">
                                     <label for="inputAddress2"> Confirm Password</label>
                                   </div>
                                 <div class="col-12">
                                 <button type="submit" name="update_user" class="btn btn-success btn-sm">Save Changes</button>
-                                <a href="dashboard.php" class="btn btn-secondary btn-sm">Cancel</a>
+                                <a href="/showProfile" class="btn btn-secondary btn-sm">Cancel</a>
                                 </div>
                                 </div>
                                 </form>

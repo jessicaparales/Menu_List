@@ -49,3 +49,4 @@ Route::get('/selectDrinks', [MenuController::class,'showMenuDrinks']);
 Route::get('/home', [MenuController::class,'showDashboard']);
 
 Route::post('/editPicture', [ProfileController::class,'editPicture']);
+Route::post('/editProfile', [ProfileController::class,'editProfile']);
