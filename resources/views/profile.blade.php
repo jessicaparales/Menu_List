@@ -10,7 +10,7 @@
                             font-style: normal;">
                                 <h5 class="card-title">Profile Picture</h5>
                                 @if(session('user')->profile_picture)
-                                <img src="uploads/{{ session('user')->profile_picture }}" class="card-img-top  rounded-circle mb-3" alt="..." width="200" height="250">
+                                  <img src="uploads/{{ session('user')->profile_picture }}" class="card-img-top  rounded-circle mb-3" alt="..." width="200" height="250">
                                 @else
                                 <img src="/img/5.png" class="card-img-top" alt="...">
                                 @endif

@@ -62,6 +62,13 @@
                               <input type="email" name="editemail"class="form-control" id="inputAddress" value="{{ $user->email }}">
                             </div>
                             <div class="col-12">
+                              <label for="inputState" class="form-label">Role</label>
+                              <select id="inputState" name="editrole" class="form-select">
+                                <option selected value="admin">Admin</option>
+                                <option selected value="user">User</option>
+                              </select>
+                            </div>
+                            <div class="col-12">
                               <label for="inputstatus" class="form-label">Status</label>
                               <input type="text" name="editstatus"class="form-control" id="inputstatus" value="{{ $user->status }}">
                             </div>
@@ -126,6 +133,7 @@
                   <div class="col-12">
                     <label for="inputState" class="form-label">Role</label>
                     <select id="inputState" name="role" class="form-select">
+                      <option selected value="admin">Admin</option>
                       <option selected value="user">User</option>
                     </select>
                   </div>

@@ -47,7 +47,7 @@
                                                 style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
                                                     {{ $manageMenu->menu_description }}
                                                 </p>
-                                                <div class="d-flex justify-content-end mt-auto">  {{-- mt-auto pushes price to bottom --}}
+                                                <div class="d-flex justify-content-end mt-auto">
                                                     <p class="card-text fw-bold border rounded-5 ps-3 pe-3 bg-warning">₱{{ $manageMenu->menu_price }}</p>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@
             }
         });
 
-        // Show no results message
+        
         const noResults = document.getElementById('noResults');
         noResults.style.display = count === 0 ? 'block' : 'none';
         if(count === 0) {

@@ -121,7 +121,6 @@ class MenuController extends Controller
         $categoryCounts   = $categoryStats->pluck('total');
         $categoryAvgPrice = $categoryStats->pluck('avg_price');
 
-        // Active items missing a picture or description
         $incompleteItems = Menu::where('archieved', 0)
             ->where(function($query){
                 $query->whereNull('menu_picture')

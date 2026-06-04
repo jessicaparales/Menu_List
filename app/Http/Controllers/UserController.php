@@ -41,6 +41,7 @@ class UserController extends Controller
          'firstname'=>$request->editfname,
          'lastname'=>$request->editlname,
          'email'=>$request->editemail,
+         'role'=>$request->editrole,
          'status'=>$request->editstatus,
       ]);
       return back()->with('success','Edit successfully');

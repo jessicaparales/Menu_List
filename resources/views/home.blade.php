@@ -5,7 +5,6 @@
 <div class="card p-3">
     <h1 class="border-bottom pb-2 mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 400; font-style: normal;">Dashboard</h1>
 
-    {{-- Row 1: KPI Cards --}}
     <div class="row g-3 mb-3">
         <div class="col-md-3">
             <div class="card h-100" style="background-color: rgb(246, 177, 206);">
@@ -41,7 +40,7 @@
         </div>
     </div>
 
-    {{-- Row 2: System overview bar + foods/drinks pie --}}
+
     <div class="row g-3 mb-3">
         <div class="col-md-6">
             <div class="border rounded-1 p-2">
@@ -54,8 +53,6 @@
             </div>
         </div>
     </div>
-
-    {{-- Row 3: Items per category + Avg price per category --}}
     <div class="row g-3 mb-3">
         
         <div class="col-md-6">
@@ -70,7 +67,6 @@
         </div>
     </div>
 
-    {{-- Row 4: Incomplete Items --}}
     @if($incompleteItems->count() > 0)
     <div class="row">
         <div class="col-12">
@@ -127,7 +123,6 @@
     const ctx2 = document.getElementById('categoryCountChart');
     const ctx3 = document.getElementById('categoryAvgPriceChart');
 
-    // Chart 1 — System overview bar
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -160,7 +155,6 @@
         }
     });
 
-    // Chart 2 — Foods vs Drinks pie
     new Chart(ctx1, {
         type: 'pie',
         data: {
@@ -191,7 +185,6 @@
         }
     });
 
-    // Chart 3 — Items per category bar
     new Chart(ctx2, {
         type: 'bar',
         data: {
@@ -216,7 +209,6 @@
         }
     });
 
-    // Chart 4 — Avg price per category bar
     new Chart(ctx3, {
         type: 'bar',
         data: {
